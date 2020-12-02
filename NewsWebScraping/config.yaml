@@ -1,0 +1,31 @@
+news_sites:
+  eluniversal:
+    url: 'https://www.eluniversal.com.mx'
+    queries:
+      homepage_article_links : '.field-content a'
+      article_body: '.field-name-body'
+      article_title: '.pane-content h1'
+  elpais:
+    url: 'https://elpais.com/america'
+    queries:
+      homepage_article_links : '.headline a'
+      article_body: ''
+      article_title: ''
+  elcomercio:
+    url: 'https://elcomercio.pe'
+    queries: 
+      homepage_article_links: '.triplet--thre eline a'
+      article_body: '.story-contents__content section'
+      article_title: '.sht h1'
+  idl:
+    url: 'https://www.idl-reporteros.pe'
+    queries:
+      homepage_article_links: '.Titulo a'
+      article_body: ''
+      article_title: ''
+  marca:
+    url: 'https://www.marca.com'
+    queries:
+      homepage_article_links: '.main a'
+      article_body: '.titles h1'
+      article_title: '.row content cols-30-70 p'
