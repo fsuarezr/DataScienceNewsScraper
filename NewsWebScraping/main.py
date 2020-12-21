@@ -31,7 +31,11 @@ def _news_scrapper(news_site_uid):
             articles.append(article)
     
     logger.info(f'{len(articles)} articles were obtained from {news_site_uid}')
-    _save_article(news_site_uid, articles)
+    
+    if len(articles) > 1:
+         _save_article(news_site_uid, articles)
+    else:
+        logger.warning('Check your query strings for body')
 
 def _save_article(news_site_uid, articles):
     logger.info(f'Creating a csv file for: {news_site_uid}')
@@ -39,7 +43,7 @@ def _save_article(news_site_uid, articles):
     out_file_name = f'{news_site_uid}_{now}_articles.csv'
     csv_headers = list(filter(lambda property: not property.startswith('_'), dir(articles[0])))
     with open(out_file_name, mode = 'w+',encoding= "utf-8") as f:
-        writer = csv.writer(f)
+        writer = csv.writer(f, delimiter='\t')
         writer.writerow(csv_headers)
 
         for article in articles:

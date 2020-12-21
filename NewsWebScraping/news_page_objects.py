@@ -39,6 +39,10 @@ class ArticlePage(NewsPage):
         super().__init__(news_site_uid, url)
     
     @property
+    def url(self):
+        return self._url
+    
+    @property
     def body(self):
         result = self._select(self._queries['article_body'])
         
@@ -51,5 +55,7 @@ class ArticlePage(NewsPage):
         return result[0].text if len(result) else ''
     
     @property
-    def url(self):
-        return self._url
+    def category(self):
+        result = self._select(self._queries['article_category'])
+
+        return result[0].text if len(result) else ''
